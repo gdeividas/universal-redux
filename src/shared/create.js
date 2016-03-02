@@ -10,12 +10,12 @@ import { compose as composeDevtools, listenToRouter as linkDevtoolsToRouter } fr
 import { applyMiddleware, createStore } from 'redux';
 
 // explicit path required for HMR to function. see #7
-import reducers from '../../../../src/redux/modules';
+import reducers from '../../../../web/redux/modules';
 
 function hmr(store) {
   if (module.hot) {
-    module.hot.accept('../../../../src/redux/modules', () => {
-      const nextRootReducer = require('../../../../src/redux/modules/index').default;
+    module.hot.accept('../../../../web/redux/modules', () => {
+      const nextRootReducer = require('../../../../web/redux/modules/index').default;
       store.replaceReducer(nextRootReducer);
     });
   }
